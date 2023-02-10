@@ -80,7 +80,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="flex items-center space-x-1.5">
+          <div className="flex flex-wrap items-center gap-1.5">
             <span className="inline-flex items-center space-x-1 rounded-full border border-zinc-600 px-2.5 py-0.5 text-xs font-medium text-zinc-700 dark:border-zinc-600 dark:text-zinc-400">
               <MapPinIcon />
               <span>Struga, North Macedonia</span>
