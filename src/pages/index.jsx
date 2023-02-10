@@ -91,6 +91,7 @@ export default function Home() {
                 rel="noreferrer"
                 target="_blank"
                 className="absolute inset-0"
+                aria-label="Hoyo Tech"
               ></a>
               <BriefcaseIcon className="h-4 w-4" />
               <span>Hoyo Tech</span>
@@ -101,6 +102,7 @@ export default function Home() {
                 rel="noreferrer"
                 target="_blank"
                 className="absolute inset-0"
+                aria-label="Join the team"
               ></a>
               <span>Join the team</span>
               <ArrowUpRightIcon />
@@ -164,7 +166,7 @@ export default function Home() {
                     <Image
                       src={project.logo}
                       alt={project.name}
-                      className="h-8 w-8 rounded-full"
+                      className="h-8 w-8 rounded-full object-cover"
                       unoptimized
                     />
                   </div>
