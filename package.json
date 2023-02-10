@@ -1,34 +1,37 @@
 {
-  "name": "eriti.dev",
-  "private": "true",
-  "version": "1.0.0",
+  "name": "tailwindui-template",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "npm run development",
-    "development": "mix",
-    "watch": "mix watch",
-    "watch-poll": "mix watch -- --watch-options-poll=1000",
-    "hot": "mix watch --hot",
-    "prod": "npm run production",
-    "production": "mix --production"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": [
-    "resume",
-    "tailwind"
-  ],
-  "author": "Erit Islami <eritislami@gmail.com>",
-  "license": "ISC",
+  "browserslist": "defaults, not ie <= 11",
   "dependencies": {
-    "@tailwindcss/forms": "^0.4.0",
-    "@tailwindcss/line-clamp": "^0.3.1",
-    "@tailwindcss/typography": "^0.5.0",
-    "autoprefixer": "^10.4.2",
-    "laravel-mix": "^6.0.39",
-    "postcss": "^8.4.5",
-    "postcss-import": "^14.0.2",
-    "tailwindcss": "^3.0.13"
+    "@headlessui/react": "^1.7.2",
+    "@mapbox/rehype-prism": "^0.8.0",
+    "@mdx-js/loader": "^2.1.5",
+    "@mdx-js/react": "^2.1.5",
+    "@next/mdx": "^13.0.2",
+    "@tailwindcss/typography": "^0.5.4",
+    "autoprefixer": "^10.4.12",
+    "clsx": "^1.2.1",
+    "fast-glob": "^3.2.11",
+    "feed": "^4.2.2",
+    "focus-visible": "^5.2.0",
+    "next": "13.0.2",
+    "postcss-focus-visible": "^6.0.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "remark-gfm": "^3.0.1",
+    "tailwindcss": "^3.2.1"
   },
   "devDependencies": {
-    "browser-sync": "^2.27.7",
-    "browser-sync-webpack-plugin": "^2.3.0"
+    "eslint": "8.26.0",
+    "eslint-config-next": "13.0.2",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.11"
   }
 }
