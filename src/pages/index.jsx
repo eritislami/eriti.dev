@@ -11,6 +11,7 @@ import {
   MapPinIcon,
   BriefcaseIcon,
   LinkIcon,
+  StarIcon,
 } from '@/components/SocialIcons'
 import avatarImage from '@/images/avatar.png'
 import logoEvobot from '@/images/logos/evobot.png'
@@ -28,7 +29,7 @@ const projects = [
   {
     name: 'EvoBot',
     description:
-      '🤖 EvoBot is a highly-customizable discord bot built with discord.js & written in TypeScript. Send me a ⭐️ on GitHub',
+      '🤖 EvoBot is a highly-customizable discord bot built with discord.js & written in TypeScript.',
     link: {
       href: 'https://github.com/eritislami/evobot',
       label: 'github.com',
@@ -37,7 +38,18 @@ const projects = [
   },
 ]
 
-export default function Home() {
+export async function getStaticProps() {
+  const res = await fetch(`https://api.github.com/repos/eritislami/evobot`)
+  const data = await res.json()
+
+  return {
+    props: {
+      stars: data.stargazers_count,
+    },
+  }
+}
+
+export default function Home({ stars }) {
   return (
     <>
       <Head>
@@ -127,7 +139,7 @@ export default function Home() {
               icon={GitHubIcon}
             />
             <SocialLink
-              href="https://linkedin.com/eritislami"
+              href="https://linkedin.com/in/eritislami"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />
@@ -170,13 +182,19 @@ export default function Home() {
                       unoptimized
                     />
                   </div>
-                  <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+                  <h2 className="mt-6 flex items-center space-x-3 text-base font-semibold text-zinc-800 dark:text-zinc-100">
                     <Card.Link href={project.link.href} target="_blank">
                       {project.name}
                     </Card.Link>
+                    <span className="ml-4 flex items-center space-x-0.5 text-xs text-zinc-600 dark:text-zinc-400">
+                      <StarIcon />
+                      <span className="font-light">
+                        {(Math.ceil(stars / 100) * 100).toLocaleString('en-US')}
+                      </span>
+                    </span>
                   </h2>
                   <Card.Description>{project.description}</Card.Description>
-                  <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-violet-500 dark:text-zinc-200">
+                  <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-amber-500 dark:text-zinc-200">
                     <LinkIcon className="h-6 w-6 flex-none" />
                     <span className="ml-2">{project.link.label}</span>
                   </p>
