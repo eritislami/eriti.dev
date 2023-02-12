@@ -44,7 +44,9 @@ export async function getStaticProps() {
 
   return {
     props: {
-      stars: data.stargazers_count,
+      stars: (Math.round(data.stargazers_count / 100) * 100).toLocaleString(
+        'en-US'
+      ),
     },
   }
 }
@@ -188,9 +190,7 @@ export default function Home({ stars }) {
                     </Card.Link>
                     <span className="ml-4 flex items-center space-x-0.5 text-xs text-zinc-600 dark:text-zinc-400">
                       <StarIcon />
-                      <span className="font-light">
-                        {(Math.ceil(stars / 100) * 100).toLocaleString('en-US')}
-                      </span>
+                      <span className="font-light">{stars}</span>
                     </span>
                   </h2>
                   <Card.Description>{project.description}</Card.Description>
